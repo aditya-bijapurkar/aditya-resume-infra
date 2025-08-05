@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    container_name: aditya-resume-backend
+    user: root
+    image: adityabijapurkar/aditya-resume-backend
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+    env_file:
+      - .env-backend
+    volumes:
+      - /home/ubuntu/tokens:/tokens
+
+  frontend:
+    container_name: aditya-resume-frontend
+    image: adityabijapurkar/aditya-resume-frontend
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+networks:
+  app-network:
