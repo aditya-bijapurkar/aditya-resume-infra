@@ -1,0 +1,115 @@
+# TEXT DATA VECTORIZED AND STORED IN S3 BUCKET
+# USE HASHTAGS BEFORE COMMENTS
+# ALWAYS KEEP A BLANK SPACE AFTER EACH LINE AND COMMENT
+
+#### PROJECT SECTION
+
+The creator of this project is Aditya Bijapurkar.  
+This project was designed, developed, and deployed by Aditya Bijapurkar.  
+The owner and maintainer of this project is Aditya Bijapurkar.  
+
+This portfolio system demonstrates Aditya’s backend and frontend expertise.  
+It combines multiple services into one integrated platform.  
+
+The project uses a React.js frontend with reusable UI components and CSS-based styling.  
+The frontend emphasizes modularity, clean design, and user-friendly navigation.  
+
+The backend is implemented using Java Spring Boot.  
+It includes a PostgreSQL database for persistent storage.  
+The backend integrates with Google APIs for scheduling Google Meet calls automatically.  
+It uses OpenAI APIs through a Retrieval Augmented Generation (RAG) framework to enhance chatbot interactions.  
+The backend applies SOLID principles and design patterns such as the Factory Pattern.  
+It includes observability features like distributed tracing, metrics, and logging.  
+
+The system is deployed on AWS cloud infrastructure.  
+It uses EC2 for hosting, S3 for storage, SES for sending emails, Route53 for DNS, ACM for SSL certificates, and CloudFront for CDN and DDoS protection.  
+Monitoring and alerting are handled by Prometheus and Grafana dashboards.  
+The platform is secured using HTTPS and protected with CloudFront’s security features.  
+
+This project also includes a custom email service integrated with AWS SES using a personal domain.  
+A CI/CD pipeline using Github Actions is set up so that deployments are automated when code is pushed to the main branch.  
+
+Key features include Google Meet scheduling, spam protection, DDoS defense, automated monitoring, and integration of frontend and backend systems.  
+
+The tech stack used in this project includes React.js for the frontend, 
+Spring Boot (Java) for the backend, and PostgreSQL as the database.  
+
+The project uses AWS cloud infrastructure: EC2 for hosting, S3 for storage, SES for email, 
+Route53 for DNS, ACM for SSL, and CloudFront for CDN & DDoS protection.  
+
+Additional tools include Docker for containerization, docker-compose for orchestration, 
+and GitHub Actions for CI/CD pipelines.  
+
+For monitoring, the stack includes Prometheus and Grafana.  
+Google APIs are integrated for Google Meet scheduling.  
+
+#### EXPERIENCE SECTION
+
+Aditya Bijapurkar has 2 years of professional experience in software development.  
+He is primarily a backend developer with strong knowledge of system design, databases, and cloud infrastructure.  
+
+Currently, Aditya works as a Software Development Engineer (SDE 1) at AiDash since April 2024.  
+His role involves backend development, building scalable APIs, database optimization, and managing AWS infrastructure.  
+At AiDash, he works with technologies such as Java Spring Boot, Python Django, PostgreSQL, MongoDB, GraphQL, REST APIs, and multiple AWS services.  
+
+Previously, Aditya worked at Akto.io as a Backend Developer Intern.  
+At Akto, he learned the foundations of microservices, API development, and production-grade backend systems.  
+
+Aditya’s backend expertise includes Java, Python, and Golang.  
+He has hands-on experience building REST APIs, GraphQL APIs, microservices, and distributed systems.  
+
+His frontend experience comes from his personal projects such as this portfolio, where he used React.js, modular components, and CSS.  
+
+His infrastructure expertise includes Kubernetes, Docker, API Gateway, and AWS Secrets Manager.  
+He has practical knowledge of DevOps practices like CI/CD pipelines, container orchestration, and monitoring with Prometheus and Grafana.  
+
+His AWS expertise includes services such as EC2, S3, SES, Route53, ACM, CloudFront, and IAM.  
+He is experienced in deploying full-stack applications using AWS cloud infrastructure.  
+
+His database expertise includes PostgreSQL, MongoDB, and Cassandra.  
+He understands database design, query optimization, and handling structured and unstructured data.  
+
+#### EDUCATION SECTION
+
+Aditya holds a Bachelor’s degree in Artificial Intelligence and Data Science from Pune University.  
+He studied topics like machine learning, deep learning, computer vision, natural language processing, and big data systems.  
+
+He also holds a certification in Big Data Computing from IIT Kanpur.  
+This certification included distributed computing, Hadoop, Spark, and large-scale data processing concepts.  
+
+During his college years, he worked on projects related to machine learning and published research papers.  
+
+#### EXTRA CURRICULAR SECTION
+
+Aditya is a competitive programmer and problem solver.  
+He has solved more than 1000 coding problems on LeetCode.  
+He regularly practices algorithmic challenges to improve his logical and problem-solving skills.  
+
+Aditya published a research paper on Deepfake Detection during college.  
+The paper focused on using machine learning and deep learning techniques to identify manipulated videos.  
+
+He has participated in hackathons and coding competitions, often working in team environments to solve complex problems under time constraints.  
+
+#### HOBBIES SECTION
+
+Aditya enjoys music and sports.  
+He plays the guitar and practices regularly.  
+He also plays football and has participated in college-level matches.  
+
+He enjoys fitness and goes to the gym.  
+He likes strength training and lifting heavy weights.  
+Staying fit and disciplined through workouts is a core part of his routine.  
+
+He also enjoys exploring new technologies, reading about AI/ML advancements, and experimenting with side projects.  
+
+#### PERSONAL QUALITIES SECTION
+
+Aditya is detail-oriented and enjoys building scalable and maintainable software.  
+He values clean code, proper documentation, and best practices in software engineering.  
+
+He is proactive about learning new skills, especially in cloud computing, AI, and large-scale system design.  
+He is adaptable and capable of working across backend, frontend, and infrastructure domains.  
+
+Aditya has strong problem-solving skills, analytical thinking, and the ability to debug complex systems.  
+
+He thrives in collaborative environments but can also work independently with self-driven motivation.  
