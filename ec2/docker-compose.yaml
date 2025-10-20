@@ -1,15 +1,44 @@
 version: '3.8'
 
 services:
+  postgres:
+    container_name: aditya-resume-postgres
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: db_user
+      POSTGRES_PASSWORD: secure_pass_one
+      POSTGRES_DB: aditya_resume_schedule
+    volumes:
+      - /mnt/data/postgres:/var/lib/postgresql/data
+    networks:
+      - app-network
+    ports:
+      - "5432:5432"
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+          cpus: '0.2'
+        reservations:
+          memory: 64M
+          cpus: '0.1'
+
   backend:
     container_name: aditya-resume-backend
-    user: root
     image: adityabijapurkar/aditya-resume-backend
     ports:
       - "8080:8080"
       - "8888:8888"
     networks:
       - app-network
+    depends_on:
+      - postgres
+    command: >
+      sh -c "echo 'Waiting for Postgres...' &&
+             until nc -z postgres 5432; do sleep 1; done &&
+             echo 'Postgres ready, starting backend...' &&
+             java -Xmx256m -Xms128m -jar /app/your-java-app.jar"
     env_file:
       - .env-backend
     volumes:
@@ -27,3 +56,4 @@ services:
 
 networks:
   app-network:
+    driver: bridge
