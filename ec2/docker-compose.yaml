@@ -5,10 +5,12 @@ services:
     container_name: aditya-resume-postgres
     image: postgres:15-alpine
     restart: unless-stopped
+    env_file:
+      - .env-backend
     environment:
-      POSTGRES_USER: db_user
-      POSTGRES_PASSWORD: secure_pass_one
-      POSTGRES_DB: aditya_resume_schedule
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     volumes:
       - /mnt/data/postgres:/var/lib/postgresql/data
     networks:
