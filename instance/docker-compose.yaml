@@ -6,9 +6,9 @@ services:
     env_file:
       - .env-backend
     environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: $DB_USER
+      POSTGRES_PASSWORD: $DB_PASSWORD
+      POSTGRES_DB: $DB_NAME
     volumes:
       - /mnt/data/postgres:/var/lib/postgresql/data
     networks:
@@ -27,6 +27,7 @@ services:
   backend:
     container_name: aditya-resume-backend
     image: adityabijapurkar/aditya-resume-backend
+    user: "1000:1000"
     ports:
       - "8080:8080"
       - "8888:8888"
