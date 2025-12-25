@@ -60,7 +60,7 @@ services:
     networks:
       - app-network
     volumes:
-      - ./certs:/etc/ssl/cloudflare:ro
+      - /etc/ssl/cloudflare:/etc/ssl/cloudflare:ro
     ports:
       - "443:443"
     depends_on:
