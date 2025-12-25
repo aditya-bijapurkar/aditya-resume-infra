@@ -25,7 +25,7 @@ services:
 
   backend:
     container_name: aditya-resume-backend
-    image: adityabijapurkar/aditya-resume-backend
+    image: adityabijapurkar/aditya-resume-backend:latest
     env_file:
       - .env-backend
     networks:
@@ -43,7 +43,7 @@ services:
 
   frontend:
     container_name: aditya-resume-frontend
-    image: adityabijapurkar/aditya-resume-frontend
+    image: adityabijapurkar/aditya-resume-frontend:latest
     networks:
       - app-network
     expose:
@@ -56,7 +56,7 @@ services:
 
   nginx:
     container_name: aditya-resume-nginx
-    image: adityabijapurkar/aditya-resume-nginx
+    image: adityabijapurkar/aditya-resume-nginx:latest
     networks:
       - app-network
     volumes:
