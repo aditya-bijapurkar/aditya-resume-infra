@@ -1,0 +1,54 @@
+name: Restart on docker compose architecture
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 2
+
+    - name: Check if docker-compose file changed
+      id: compose_check
+      run: |
+        if git diff --name-only HEAD^ HEAD | grep -q "^instance/docker-compose.yaml$"; then
+          echo "file_changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "file_changed=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Exit if docker-compose.yaml did not change
+      if: steps.compose_check.outputs.file_changed == 'false'
+      run: |
+        echo "No changes to instance/docker-compose.yaml, Exiting this job...."
+        exit 0
+        
+    - name: Replace docker-compose file on server
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.INSTANCE_IPV4 }}
+        username: ${{ secrets.INSTANCE_USER }}
+        key: ${{ secrets.INSTANCE_KEY }}
+        source: "instance/docker-compose.yaml"
+        target: "/home/${{ secrets.INSTANCE_USER }}/"
+        strip_components: 1
+
+    - name: Restart docker compose on server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.INSTANCE_IPV4 }}
+        username: ${{ secrets.INSTANCE_USER }}
+        key: ${{ secrets.INSTANCE_KEY }}
+        script: |
+          echo "Stopping current docker containers..."
+          sudo docker compose down || true
+          echo "restarting docker containers..."
+          sudo docker compose up -d
+          echo "successfully restarted docker compose!"
