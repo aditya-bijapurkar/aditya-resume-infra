@@ -23,14 +23,9 @@ jobs:
         else
           echo "file_changed=false" >> $GITHUB_OUTPUT
         fi
-
-    - name: Exit if docker-compose.yaml did not change
-      if: steps.compose_check.outputs.file_changed == 'false'
-      run: |
-        echo "No changes to instance/docker-compose.yaml, Exiting this job...."
-        exit 0
         
     - name: Replace docker-compose file on server
+      if: steps.compose_check.outputs.file_changed == 'true'
       uses: appleboy/scp-action@v0.1.7
       with:
         host: ${{ secrets.INSTANCE_IPV4 }}
@@ -41,6 +36,7 @@ jobs:
         strip_components: 1
 
     - name: Restart docker compose on server
+      if: steps.compose_check.outputs.file_changed == 'true'
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.INSTANCE_IPV4 }}
