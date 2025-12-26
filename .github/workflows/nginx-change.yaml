@@ -54,4 +54,4 @@ jobs:
           sudo docker compose up -d nginx
           echo "removing unused image..."
           sudo docker image prune -f
-          sudo "successfully completed nginx restart script!"
+          echo "successfully completed nginx restart script!"
