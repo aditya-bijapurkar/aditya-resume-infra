@@ -44,8 +44,6 @@ services:
   frontend:
     container_name: aditya-resume-frontend
     image: adityabijapurkar/aditya-resume-frontend:latest
-    env_file:
-      - .env-frontend
     networks:
       - app-network
     expose:
