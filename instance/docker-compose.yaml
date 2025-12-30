@@ -32,6 +32,8 @@ services:
       - app-network
     expose:
       - "8080"
+    mem_limit: 400m
+    memswap_limit: 900m
     depends_on:
       postgres:
         condition: service_healthy
