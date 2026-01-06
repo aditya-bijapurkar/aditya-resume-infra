@@ -62,6 +62,8 @@ services:
   auth:
     container_name: aditya-resume-auth
     image: adityabijapurkar/aditya-resume-auth:latest
+    env_file:
+      - .env-auth
     networks:
       - app-network
     expose:
