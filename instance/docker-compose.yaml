@@ -33,8 +33,9 @@ services:
       - app-network
     expose:
       - "8080"
-    mem_limit: 400m
-    memswap_limit: 900m
+    restart: unless-stopped
+    mem_limit: 560m
+    memswap_limit: 1.1g
     depends_on:
       postgres:
         condition: service_healthy
@@ -51,8 +52,8 @@ services:
       - app-network
     expose:
       - "80"
-    mem_limit: 100m
-    memswap_limit: 200m
+    mem_limit: 64m
+    memswap_limit: 128m
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:80 >/dev/null"]
       interval: 10s
@@ -68,8 +69,8 @@ services:
       - app-network
     expose:
       - "8080"
-    mem_limit: 100m
-    memswap_limit: 200m
+    mem_limit: 64m
+    memswap_limit: 128m
     depends_on:
       postgres:
         condition: service_healthy
@@ -88,8 +89,8 @@ services:
       - /etc/ssl/cloudflare:/etc/ssl/cloudflare:ro
     ports:
       - "443:443"
-    mem_limit: 100m
-    memswap_limit: 200m
+    mem_limit: 64m
+    memswap_limit: 128m
     depends_on:
       backend:
         condition: service_healthy
