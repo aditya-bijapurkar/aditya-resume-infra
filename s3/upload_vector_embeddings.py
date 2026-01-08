@@ -3,30 +3,33 @@ import boto3
 import os
 import openai
 
+# create a file in the same directory named personal_data.txt and add data to be used in the knowledge base
+
 MODEL = "text-embedding-3-small"
-LOCAL_TEXT_FILENAME = "/Users/aditya.bijapurkar/Projects/aditya-resume-infra/s3/personal_data.txt"
+LOCAL_TEXT_FILENAME = "./personal_data.txt"
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 AWS_REGION = os.getenv("AWS_REGION")
 S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
 S3_BUCKET_VECTOR_EMBEDDINGS_KEY = os.getenv("S3_BUCKET_VECTOR_EMBEDDINGS_KEY")
 
-if not OPENAI_API_KEY:
-    raise ValueError("Please set OPENAI_API_KEY in your environment.")
+if not all([OPENAI_API_KEY, AWS_REGION, S3_BUCKET_NAME, S3_BUCKET_VECTOR_EMBEDDINGS_KEY]):
+    raise ValueError("Missing required environment variables")
 
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
 s3_client = boto3.client("s3", region_name=AWS_REGION)
 
 with open(LOCAL_TEXT_FILENAME, "r") as file:
-    text_chunks = file.read().split("\n\n")
+    text_chunks = file.read().splitlines()
 
 vector_embeddings = []
 
 index = 0
 for chunk in text_chunks:
-    if chunk[0] == "#":
+    chunk = chunk.strip()
+    if not chunk or chunk.startswith("#"):
         continue
     
-    print(f"Processing chunk {index+1}...")
+    print(f"Processing chunk {index+1}...: {chunk}")
     index += 1
     response = client.embeddings.create(
         model=MODEL,
