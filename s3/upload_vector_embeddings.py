@@ -6,7 +6,8 @@ import openai
 # create a file in the same directory named personal_data.txt and add data to be used in the knowledge base
 
 MODEL = "text-embedding-3-small"
-LOCAL_TEXT_FILENAME = "./personal_data.txt"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+LOCAL_TEXT_FILENAME = os.path.join(BASE_DIR, "personal_data.txt")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 AWS_REGION = os.getenv("AWS_REGION")
 S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
